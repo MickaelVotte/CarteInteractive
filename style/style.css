@@ -1,0 +1,13 @@
+#map { height: 30rem; }
+
+.card{
+    height: 25rem;
+    width: auto;
+}
+
+.grandsSinges{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
