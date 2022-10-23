@@ -11,3 +11,17 @@
     border-radius: 50%;
     margin-right: 0.5rem;
 }
+.btn-marker{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.75rem;
+    background-color: black;
+    text-align: center;
+    color: white;
+    border-radius: 0.75rem;
+    padding: 0.2rem;
+    margin: 0.3rem;
+
+}
