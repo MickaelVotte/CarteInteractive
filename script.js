@@ -25,9 +25,9 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   });
   
 
-  const a = new Marker("-1.68595", "19.58426")
-  const b = new Marker("1.2", "15.3")
-  const c = new Marker("-2.2", "25.3")
+  const a = new Marker("-1.68595", "19.58426", "Les Grandes Singes")
+  const b = new Marker("1.2", "15.3", "Les Elephants")
+  const c = new Marker("-2.2", "25.3", "Les Lions")
   
   const markerList = [];
   
@@ -40,7 +40,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   
   for(let i = 0; i < markerList.length; i++)
   {  
-    L.marker([markerList[i].getLatitude, markerList[i].getLongitude],  {icon: greenIcon}).addTo(map).bindPopup('Hello');
+    L.marker([markerList[i].getLatitude, markerList[i].getLongitude],{icon: greenIcon}).addTo(map).bindPopup((markerList[i].getText) + ("<button type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>"));
   }
   
   
@@ -50,11 +50,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   
   
   
-  
-  
-  // const d = new Marker(L.marker([-1.68595, 19.58426], {icon: greenIcon}).addTo(map));
 
-// marker.bindPopup("<img class='grandsSinges' src='/assets/img/grandssinges.jpg' alt='grands singes'><b>Les Grands Singes!<br><button type='button' class='btn-marker ms-5' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>");
+ //marker.bindPopup("<img class='grandsSinges' src='/assets/img/grandssinges.jpg' alt='grands singes'><b>Les Grands Singes!<br><button type='button' class='btn-marker ms-5' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>");
 
 
 
