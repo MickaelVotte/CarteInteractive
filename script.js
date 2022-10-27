@@ -1,10 +1,11 @@
 
 
 
-// consttruction de la carte
-
+// création de la carte
 const map = L.map('map').setView([-1.68595, 19.58426], 5);
 
+
+// création du layer
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -13,19 +14,49 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 
+//changer le marqueur
+ const greenIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+  
+
+  const a = new Marker("-1.68595", "19.58426")
+  const b = new Marker("1.2", "15.3")
+  const c = new Marker("-2.2", "25.3")
+  
+  const markerList = [];
+  
+  markerList.push(a);
+  markerList.push(b);
+  markerList.push(c);
+  
+  
+  
+  
+  for(let i = 0; i < markerList.length; i++)
+  {  
+    L.marker([markerList[i].getLatitude, markerList[i].getLongitude],  {icon: greenIcon}).addTo(map).bindPopup('Hello');
+  }
+  
+  
+  
+  //ajout des marqueurs
+  
+  
+  
+  
+  
+  
+  // const d = new Marker(L.marker([-1.68595, 19.58426], {icon: greenIcon}).addTo(map));
+
+// marker.bindPopup("<img class='grandsSinges' src='/assets/img/grandssinges.jpg' alt='grands singes'><b>Les Grands Singes!<br><button type='button' class='btn-marker ms-5' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>");
 
 
 
-//ajout des marqueurs
-/*
-const marker1 = L.marker([-1.68595, 19.58426]).addTo(map);
-const marker2 = L.marker([-2.68550, 26.58420]).addTo(map);
-const marker3 = L.marker([-4.68895, 19.58126]).addTo(map);
-const marker4 = L.marker([-1.98095, 21.58026]).addTo(map);
 
 
-marker1.bindPopup("<img class='grandsSinges' src='/assets/img/grandssinges.jpg' alt='grands singes'><b>Les Grands Singes!<br><button type='button' class='btn-marker ms-5' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>");
-
-
-marker2.bindPopup("<b>Hello world!</b><br>I am a Tiger.")
-*/
