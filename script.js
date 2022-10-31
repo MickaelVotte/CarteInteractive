@@ -15,7 +15,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 //changer le marqueur
- const greenIcon = new L.Icon({
+ const blackIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
     iconSize: [25, 41],
@@ -24,23 +24,67 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     shadowSize: [41, 41]
   });
   
+ const greenIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+ const blueIcon = new L.Icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+  
+/////////////////////////////////////////////////////
 
-  const a = new Marker("-1.68595", "19.58426", "Les Grandes Singes")
-  const b = new Marker("1.2", "15.3", "Les Elephants")
-  const c = new Marker("-2.2", "25.3", "Les Lions")
+
+
+
+
+//Creation des marqueurs
+  const a = new Marker("-1.68595", "19.58426", "Les Grandes Singes", "./assets/img/grandssinges.jpg", "mammifère")
+  const b = new Marker("1.2", "15.3", "Les Elephants", "./assets/img/elephantAfrique.jpg", "poisson")
+  const c = new Marker("-2.2", "25.3", "Les Lions", "./assets/img/lion.jpg", "oiseau")
   
-  const markerList = [];
-  
+  const d = new Marker("-1.98595", "17.58426", "Les Grandes Singes", "./assets/img/grandssinges.jpg", "mammifère")
+
+
+
+  //ajouter les marqueurs dans le tableau markerlist qui va permettre ensuite d'afficher les marqueur sur la map
+  let markerList = [];
   markerList.push(a);
   markerList.push(b);
   markerList.push(c);
+  markerList.push(d);
   
+  function showMarker()
+  {
+      console.log(markerList[i]);
+  }
   
-  
-  
+  //boucle permettant d'afficher tout les marqueur 
+  // condition qui permet de differencier les couleurs des marqueur selon la caracteristique de l'animal (race)
   for(let i = 0; i < markerList.length; i++)
-  {  
-    L.marker([markerList[i].getLatitude, markerList[i].getLongitude],{icon: greenIcon}).addTo(map).bindPopup((markerList[i].getText) + ("<button type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>"));
+  { 
+      if(markerList[i].getRace === "mammifère"){
+         markerList.push(L.marker([markerList[i].getLatitude, markerList[i].getLongitude],{icon: blackIcon}).addTo(map).bindPopup((`<img class='grandsSinges' src= ${markerList[i].getImage} alt='animaux d'Afrique'> ${markerList[i].getTitle} <button type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>
+     ` )))
+      }
+      if(markerList[i].getRace === "oiseau"){
+         markerList.push(L.marker([markerList[i].getLatitude, markerList[i].getLongitude],{icon: greenIcon}).addTo(map).bindPopup((`<img class='grandsSinges' src= ${markerList[i].getImage} alt='animaux d'Afrique'> ${markerList[i].getTitle} <button type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>
+         ` )))
+      }
+      if(markerList[i].getRace === "poisson"){
+         markerList.push(L.marker([markerList[i].getLatitude, markerList[i].getLongitude],{icon: blueIcon}).addTo(map).bindPopup((`<img class='grandsSinges' src= ${markerList[i].getImage} alt='animaux d'Afrique'> ${markerList[i].getTitle} <button type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>
+         ` )))
+      }
+     ;
   }
   
   
@@ -50,8 +94,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   
   
   
-
- //marker.bindPopup("<img class='grandsSinges' src='/assets/img/grandssinges.jpg' alt='grands singes'><b>Les Grands Singes!<br><button type='button' class='btn-marker ms-5' data-bs-toggle='modal' data-bs-target='#grandSinges'>Plus d'info</button>");
 
 
 
