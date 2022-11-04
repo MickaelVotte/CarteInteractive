@@ -187,14 +187,3 @@ let madagascar ={
     ]
   }
 
-  L.geoJSON(madagascar, {
-    style: function(feature){
-      return{
-        "color": "#FA5858",
-        "fillColor": "#FA5858",
-        "fillOpacity": 0.1
-        
-      }
-    }
-  }).addTo(map).bindPopup("Madagascar")
-  

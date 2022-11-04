@@ -11,12 +11,48 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////
+
+// zone foret equatorial du congo 
+L.geoJSON(data, {
+    style: function(feature){
+      return{
+        "color": "green",
+        "fillColor": "green"
+        
+      }
+    }
+  }).addTo(map).bindPopup("Forêt du bassin du Congo")
+  
+
+// zone des grand Lacs
+  L.geoJSON(grandLac, {
+    style: function(feature){
+      return{
+        "color": "orange",
+        "fillColor": "orange"
+        
+      }
+    }
+  }).addTo(map).bindPopup("La Région des Grands Lacs")
+
+
+  //zone Madagascar
+  L.geoJSON(madagascar, {
+    style: function(feature){
+      return{
+        "color": "#FA5858",
+        "fillColor": "#FA5858",
+        "fillOpacity": 0.1
+        
+      }
+    }
+  }).addTo(map).bindPopup("Madagascar")
+  
 
 
 
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //changer le marqueur
 const blackIcon = new L.Icon({
     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png',
@@ -99,7 +135,7 @@ function showMarker(data){
         if(data[i].getRace === "poisson"){
            marker.setIcon(greenIcon)
         }
-        
+
         africaVisibleList.push(marker)
         marker.bindPopup( `<img class='grandsSinges' src= ${africaList[i].getImage} alt='animaux d'Afrique'>`+ data[i].getTitle + `<button onclick="modifyText('`+ (data[i].getText) + `'); modifyTitle('`+ data[i].getTitle + `')" type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>`)
         marker.addTo(africa);  

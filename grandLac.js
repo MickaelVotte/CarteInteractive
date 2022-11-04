@@ -195,15 +195,3 @@ let grandLac = {
     ]
   }
 
-
-  L.geoJSON(grandLac, {
-    style: function(feature){
-      return{
-        "color": "orange",
-        "fillColor": "orange"
-        
-      }
-    }
-  }).addTo(map).bindPopup("La Région des Grands Lacs")
-
-  

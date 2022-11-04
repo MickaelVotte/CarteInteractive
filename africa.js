@@ -694,15 +694,6 @@ let data =
 
 
 
-L.geoJSON(data, {
-  style: function(feature){
-    return{
-      "color": "green",
-      "fillColor": "green"
-      
-    }
-  }
-}).addTo(map).bindPopup("Forêt du bassin du Congo")
 
 
 
