@@ -204,5 +204,6 @@ let grandLac = {
         
       }
     }
-  }).addTo(map)
+  }).addTo(map).bindPopup("La Région des Grands Lacs")
+
   

@@ -702,7 +702,7 @@ L.geoJSON(data, {
       
     }
   }
-}).addTo(map)
+}).addTo(map).bindPopup("Forêt du bassin du Congo")
 
 
 

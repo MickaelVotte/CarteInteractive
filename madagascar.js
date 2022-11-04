@@ -196,5 +196,5 @@ let madagascar ={
         
       }
     }
-  }).addTo(map)
+  }).addTo(map).bindPopup("Madagascar")
   

@@ -96,23 +96,34 @@
             <div class="modal-dialog  modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="animauxAfrique"></h1>
+                        <h1 class="modal-title fs-5" id="title">
+
+                        </h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <div id="text">
+
+                        </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">fermer</button>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+
     <div class="row m-0 p-0 d-flex justify-content-center">
         <div class="col-2">
-            <button class="" onclick="">afficher les marqueurs</button></div>
+            <button class="" onclick="showMarker(africaList)">afficher les marqueurs RDC</button>
+        </div>
+        <div class="col-2">
+            <button class="" onclick="removeMarkerOnMap(africa)">masquer les marqueurs RDC</button>
+        </div>
 
     </div>
 
@@ -150,7 +161,8 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
     <script src="Classes.js"></script>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
+    <script src="./app.js"></script>
     <script src="africa.js"></script>
     <script src="grandLac.js"></script>
     <script src="madagascar.js"></script>
