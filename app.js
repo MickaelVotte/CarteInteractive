@@ -133,9 +133,6 @@ let madagascarZone = L.layerGroup([])
 
 
 
-
-
-
 function modifyText(value) {
   let text = document.getElementById('text')
   text.innerHTML = '<p>' + value + '</p>'
@@ -147,6 +144,11 @@ function modifyTitle(value) {
   title.innerHTML = "<p>" + value + "<p>"
 
 }
+
+
+
+
+
 
 
 function showMarker(data) {
@@ -164,37 +166,61 @@ function showMarker(data) {
     }
 
 
-
     if (data == africaList) {
       africaVisibleList.push(marker)
       marker.bindPopup(`<img class='grandsSinges' src= ${africaList[i].getImage} alt='animaux d'Afrique'>` + data[i].getTitle + `<button onclick="modifyText('` + (data[i].getText) + `'); modifyTitle('` + data[i].getTitle + `')" type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>`)
       //afficher les layer sur la carte
+     
       marker.addTo(africa);
     } else if (data == grandLacList) {
       grandLacVisibleList.push(marker)
       marker.bindPopup(`<img class='grandsSinges' src= ${grandLacList[i].getImage} alt='animaux d'Afrique'>` + data[i].getTitle + `<button onclick="modifyText('` + (data[i].getText) + `'); modifyTitle('` + data[i].getTitle + `')" type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>`)
       marker.addTo(grandLacsZone);
 
-    }else{
+    } else {
       madagascarVisibleList.push(marker)
       marker.bindPopup(`<img class='grandsSinges' src= ${madagascarList[i].getImage} alt='animaux d'Afrique'>` + data[i].getTitle + `<button onclick="modifyText('` + (data[i].getText) + `'); modifyTitle('` + data[i].getTitle + `')" type='button' class='btn-marker mx-auto' data-bs-toggle='modal' data-bs-target='#animauxAfrique'>Plus d'info</button>`)
       marker.addTo(madagascarZone);
     }
 
-
-
-
-
-
-
   }
+  
   africa.addTo(map);
   grandLacsZone.addTo(map);
   madagascarZone.addTo(map);
+
 };
 
 
-
 function removeMarkerOnMap(layerGroup) {
+
   layerGroup.clearLayers();
+
+}
+
+document.getElementById('checkbox0').addEventListener('change', checkOrNot())
+document.getElementById('checkbox1').addEventListener('change', checkOrNot())
+document.getElementById('checkbox2').addEventListener('change', checkOrNot())
+
+//fonction qui permet d'afficher/enlever les marqueurs
+function checkOrNot() {
+
+  if (checkbox0.checked == true) {
+    showMarker(africaList);
+  }else{
+    removeMarkerOnMap(africa);
+  }
+  
+  if(checkbox1.checked == true){
+    showMarker(grandLacList);
+  }else{
+    removeMarkerOnMap(grandLacsZone);
+  }
+
+  if(checkbox2.checked == true){
+    showMarker(madagascarList);
+  }else{
+    removeMarkerOnMap(madagascarZone);
+  }
+
 }
