@@ -3,6 +3,7 @@
 .card{
     height: 25rem;
     width: auto;
+    border-radius: 1rem;
 }
 
 .grandsSinges{
@@ -24,4 +25,11 @@
     padding: 0.2rem;
     margin: 0.3rem;
 
+}
+
+.photoCard{
+    height: 15rem;
+    width: auto;
+    border-top-left-radius:1rem ;
+    border-top-right-radius: 1rem;
 }
